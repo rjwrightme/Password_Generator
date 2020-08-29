@@ -8,6 +8,10 @@ This is a simple application for generating random passwords with a handful of s
 1. Include or exclude numbers
 1. Include or exclude special characters
 
+## Link
+
+https://rjwrightme.github.io/Password_Generator/
+
 ## Screenshot
 
 The following image demonstrates the application functionality:
