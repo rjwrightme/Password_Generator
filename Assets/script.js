@@ -17,6 +17,7 @@ const upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 function generatePassword() {
   let settingsArray = checkSettings();
   let result = '';
+  // Loop to generate a password to the length specified by the slider
   for (let i = 0; i < sliderValue.getAttribute("data-length"); i++) {
     result = result + settingsArray[Math.floor(Math.random() * settingsArray.length)];
   }
@@ -52,5 +53,17 @@ function writePassword() {
 slider.querySelector("input").addEventListener("input", event => {
   sliderValue.setAttribute("data-length", event.target.value);
 });
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// Disable Generate Password button if no options checked
+document.querySelectorAll('.options input').forEach(item => {
+  item.addEventListener('click', event => {
+    if (upperBox.checked || lowerBox.checked || numBox.checked || symBox.checked) {
+      generateBtn.disabled = false;
+    } else {
+      generateBtn.disabled = true;
+    }
+  })
+})

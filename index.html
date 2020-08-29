@@ -13,15 +13,12 @@
         <h1>Password Generator</h1>
       </header>
       <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
         <div class="card-body">
-          <div class="col-md-6">
-            <div class="range-slider">
-              <div class="range-slider__title" data-length="20">
-                Password Length:
-              </div>
+          <div class="range-slider">
+            <div class="range-slider__title" data-length="20">
+              Password Length:
+            </div>
+            <div class="slidecontainer">
               <span class="range-slider__min">8</span>
               <input
                 class="range-slider__range"
@@ -33,28 +30,26 @@
               <span class="range-slider__max">120</span>
             </div>
           </div>
-          <div class="col-md-6">
-            <label class="options">
-              <input id="checkUpper" type="checkbox" checked="checked" />
-              <div class="box"></div>
-              Uppercase
-            </label>
-            <label class="options">
-              <input id="checkLower" type="checkbox" checked="checked" />
-              <div class="box"></div>
-              Lowercase
-            </label>
-            <label class="options">
-              <input id="checkNum" type="checkbox" />
-              <div class="box"></div>
-              Numbers
-            </label>
-            <label class="options">
-              <input id="checkSym" type="checkbox" />
-              <div class="box"></div>
-              Symbols
-            </label>
-          </div>
+          <label class="options">
+            <input id="checkUpper" type="checkbox" checked="checked" />
+            <div class="box"></div>
+            UPPERCASE LETTERS
+          </label>
+          <label class="options">
+            <input id="checkLower" type="checkbox" checked="checked" />
+            <div class="box"></div>
+            lowercase letters
+          </label>
+          <label class="options">
+            <input id="checkNum" type="checkbox" />
+            <div class="box"></div>
+            Numb3rs
+          </label>
+          <label class="options">
+            <input id="checkSym" type="checkbox" />
+            <div class="box"></div>
+            $ymbols
+          </label>
           <textarea
             readonly
             id="password"
