@@ -52,6 +52,9 @@ header {
 
 .card-body {
   min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .card-footer {
@@ -72,12 +75,77 @@ header {
   clear: both;
 }
 
+/* Range Slider */
+
+.range-slider__title::after {
+  content: attr(data-length);
+  right: -16px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Options Styling  */
+.options {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 19px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.options input {
+  display: none;
+}
+
+.options input:checked+.box {
+  background-color: #b3ffb7;
+}
+
+.options input:checked+.box:after {
+  top: 0;
+}
+
+.options .box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  transition: all 1.1s cubic-bezier(0.19, 1, 0.22, 1);
+  border: 1px solid #aeaeae;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: -4px;
+}
+
+.options .box:after {
+  width: 70%;
+  height: 35%;
+  content: '';
+  position: absolute;
+  border-left: 2.5px solid;
+  border-bottom: 2.5px solid;
+  border-color: #40c540;
+  transform: rotate(-45deg) translate3d(0, 0, 0);
+  transform-origin: center center;
+  transition: all 1.1s cubic-bezier(0.19, 1, 0.22, 1);
+  left: 0;
+  right: 0;
+  top: 200%;
+  bottom: 5%;
+  margin: auto;
+}
+
+/* Button Styling */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -95,6 +163,11 @@ button[disabled] {
 
 .float-right {
   float: right;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 #password {
@@ -133,5 +206,10 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
