@@ -15,20 +15,29 @@ const lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', '
 const upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 function generatePassword() {
-  let pwdArray = [];
+  let settingsArray = checkSettings();
+  let result = '';
+  for (let i = 0; i < sliderValue.getAttribute("data-length"); i++) {
+    result = result + settingsArray[Math.floor(Math.random() * settingsArray.length)];
+  }
+  return result;
+}
+
+function checkSettings() {
+  let settingsArray = [];
   if (upperBox.checked) {
-    pwdArray += upperChar;
+    settingsArray = settingsArray.concat(upperChar);
   }
   if (lowerBox.checked) {
-    pwdArray += lowerChar;
+    settingsArray = settingsArray.concat(lowerChar);
   }
   if (numBox.checked) {
-    pwdArray += numChar;
+    settingsArray = settingsArray.concat(numChar);
   }
   if (symBox.checked) {
-    pwdArray += symChar;
+    settingsArray = settingsArray.concat(symChar);
   }
-  return pwdArray;
+  return settingsArray;
 }
 // Write password to the #password input
 function writePassword() {
